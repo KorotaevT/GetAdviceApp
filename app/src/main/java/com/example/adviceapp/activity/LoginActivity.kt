@@ -1,4 +1,4 @@
-package com.example.adviceapp
+package com.example.adviceapp.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
+import com.example.adviceapp.R
 import kotlin.math.abs
 
 class LoginActivity : AppCompatActivity() {

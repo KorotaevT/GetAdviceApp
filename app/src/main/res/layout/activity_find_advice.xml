@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvFindAdviceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/find_advice"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/dark_green"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/etAdviceQuery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_part_of_the_advice"
+        android:layout_below="@id/tvFindAdviceTitle"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:background="@drawable/advice_background"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/btnSearchAdvice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search"
+        android:layout_below="@id/etAdviceQuery"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        android:layout_below="@id/etAdviceQuery"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/white"
+        android:layout_alignBaseline="@id/btnSearchAdvice"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAdviceResults"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/btnSearchAdvice"
+        android:layout_marginTop="32dp"
+        android:layout_above="@id/btnBack"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/advice_list_background"
+        android:padding="8dp"/>
+
+</RelativeLayout>

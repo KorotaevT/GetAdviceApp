@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AdviceApp</string>
+    <string name="back">Back</string>
+    <string name="search">Search</string>
+    <string name="enter_part_of_the_advice">Enter part of the advice</string>
+    <string name="find_advice">Find Advice</string>
+    <string name="getadvice">GetAdvice</string>
 </resources>
