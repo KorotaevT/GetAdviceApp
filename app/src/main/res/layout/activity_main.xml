@@ -1,22 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/white"
+    android:padding="16dp">
 
-    <Button
-        android:id="@+id/getAdviceButton"
+    <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get Advice"
-        android:layout_centerInParent="true"/>
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/dark_green"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"/>
 
-    <TextView
-        android:id="@+id/adviceTextView"
+    <Button
+        android:id="@+id/btnGetAdvice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Advice will appear here"
-        android:layout_below="@id/getAdviceButton"
+        android:text="Random advice"
+        android:layout_below="@id/tvTitle"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"/>
+        android:padding="16dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/tvAdvice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/advice_background"
+        android:padding="16dp"
+        android:text="Your advice will appear here"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:layout_below="@id/btnGetAdvice"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btnAllAdvices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List of Advices"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/btnFindAdvice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Advice"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/white"/>
 </RelativeLayout>
