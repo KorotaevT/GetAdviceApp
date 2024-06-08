@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.adviceapp.R
+import com.example.adviceapp.adapter.PreferencesManager
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
@@ -14,7 +15,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var btnGetAdvice: Button
     private lateinit var btnFindAdvice: Button
+    private lateinit var btnAllAdvices: Button
     private lateinit var tvAdvice: TextView
+    private lateinit var preferencesManager: PreferencesManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +25,10 @@ class MainActivity : AppCompatActivity() {
 
         btnGetAdvice = findViewById(R.id.btnGetAdvice)
         btnFindAdvice = findViewById(R.id.btnFindAdvice)
+        btnAllAdvices = findViewById(R.id.btnAllAdvices)
         tvAdvice = findViewById(R.id.tvAdvice)
+
+        preferencesManager = PreferencesManager(this)
 
         btnGetAdvice.setOnClickListener {
             fetchRandomAdvice()
@@ -30,6 +36,11 @@ class MainActivity : AppCompatActivity() {
 
         btnFindAdvice.setOnClickListener {
             val intent = Intent(this, FindAdviceActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnAllAdvices.setOnClickListener {
+            val intent = Intent(this, RecentAdvicesActivity::class.java)
             startActivity(intent)
         }
     }
@@ -52,6 +63,10 @@ class MainActivity : AppCompatActivity() {
                     val json = JSONObject(responseString)
                     val slip = json.getJSONObject("slip")
                     val advice = slip.getString("advice")
+                    val adviceId = slip.getString("id")
+
+                    preferencesManager.saveAdviceId(adviceId)
+
                     runOnUiThread {
                         tvAdvice.text = advice
                     }

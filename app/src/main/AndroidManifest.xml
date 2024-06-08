@@ -34,6 +34,10 @@
         <activity
             android:name=".activity.FindAdviceActivity"
             android:theme="@style/Theme.AdviceApp"/>
+
+        <activity
+            android:name=".activity.RecentAdvicesActivity"
+            android:theme="@style/Theme.AdviceApp"/>
     </application>
 
 </manifest>

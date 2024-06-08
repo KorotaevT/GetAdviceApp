@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvRecentAdvicesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recent_advices"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/dark_green"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btnBackFromRecentAdvices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        android:layout_below="@id/tvRecentAdvicesTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/btnClearList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clear"
+        android:layout_below="@id/tvRecentAdvicesTitle"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/white"
+        android:layout_alignBaseline="@id/btnBackFromRecentAdvices"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRecentAdvices"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnBackFromRecentAdvices"
+        android:layout_marginTop="16dp"
+        android:padding="8dp" />
+</RelativeLayout>

@@ -3,15 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp"
-    android:layout_marginBottom="16dp"
-    android:background="@drawable/advice_background">
+    android:padding="8dp">
 
     <TextView
-        android:id="@+id/tvAdviceText"
+        android:id="@+id/tvAdvice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:padding="8dp"/>
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
 </LinearLayout>
