@@ -1,6 +1,5 @@
 package com.example.adviceapp.activity
 
-import PreferencesManager
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -10,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adviceapp.R
 import com.example.adviceapp.adapter.AdviceAdapter
+import com.example.adviceapp.adapter.PreferencesManager
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
@@ -62,6 +62,10 @@ class RecentAdvicesActivity : AppCompatActivity() {
     }
 
     private fun fetchAdviceById(adviceIds: List<String>, index: Int) {
+        if (index >= adviceIds.size) {
+            return
+        }
+
         val request = Request.Builder().url("https://api.adviceslip.com/advice/${adviceIds[index]}").build()
 
         client.newCall(request).enqueue(object : Callback {
@@ -69,6 +73,7 @@ class RecentAdvicesActivity : AppCompatActivity() {
                 runOnUiThread {
                     Toast.makeText(this@RecentAdvicesActivity, "Failed to fetch advice for ID: ${adviceIds[index]}", Toast.LENGTH_SHORT).show()
                 }
+                fetchAdviceById(adviceIds, index + 1)
             }
 
             override fun onResponse(call: Call, response: Response) {
@@ -78,29 +83,20 @@ class RecentAdvicesActivity : AppCompatActivity() {
                         val json = JSONObject(responseString)
                         val slip = json.getJSONObject("slip")
                         val advice = slip.getString("advice")
-                        val adviceId = slip.getString("id")
 
                         runOnUiThread {
-                            advices.add(advice)
-                            Log.d("RecentAdvicesActivity", "Advice ID: $adviceId, Advice: $advice")
+                            adviceAdapter.addAdvice(advice)
                         }
 
-                        if (index < adviceIds.size - 1) {
-                            fetchAdviceById(adviceIds, index + 1)
-                        } else {
-                            runOnUiThread {
-                                advices.reverse()
-                                adviceAdapter.updateData(advices)
-                            }
-                        }
+                        fetchAdviceById(adviceIds, index + 1)
                     } else {
                         runOnUiThread {
                             Toast.makeText(this@RecentAdvicesActivity, "Invalid response for ID: ${adviceIds[index]}", Toast.LENGTH_SHORT).show()
                         }
+                        fetchAdviceById(adviceIds, index + 1)
                     }
                 }
             }
         })
     }
-
 }

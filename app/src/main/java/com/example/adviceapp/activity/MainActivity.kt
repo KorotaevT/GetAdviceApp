@@ -1,13 +1,13 @@
 package com.example.adviceapp.activity
 
 
-import PreferencesManager
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.adviceapp.R
+import com.example.adviceapp.adapter.PreferencesManager
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException

@@ -1,3 +1,5 @@
+package com.example.adviceapp.adapter
+
 import android.content.Context
 import android.content.SharedPreferences
 import org.json.JSONArray
