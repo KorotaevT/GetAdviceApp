@@ -37,14 +37,17 @@
         android:layout_marginTop="16dp"
         android:padding="16dp"
         android:background="@drawable/button_background"
-        android:textColor="@color/white"
-        android:layout_alignBaseline="@id/btnBackFromRecentAdvices"/>
+        android:textColor="@color/white"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRecentAdvices"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_below="@id/btnBackFromRecentAdvices"
-        android:layout_marginTop="16dp"
-        android:padding="8dp" />
+        android:layout_marginTop="32dp"
+        android:layout_above="@+id/btnBackFromRecentAdvices"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/advice_list_background"
+        android:padding="8dp"/>
+
 </RelativeLayout>

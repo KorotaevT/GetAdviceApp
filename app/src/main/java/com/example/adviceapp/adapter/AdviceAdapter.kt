@@ -7,15 +7,19 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adviceapp.R
 
-class AdviceAdapter(private var advices: MutableList<String>) : RecyclerView.Adapter<AdviceAdapter.AdviceViewHolder>() {
+class AdviceAdapter(private val advices: MutableList<String>) : RecyclerView.Adapter<AdviceAdapter.AdviceViewHolder>() {
+
+    class AdviceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val adviceTextView: TextView = itemView.findViewById(R.id.adviceTextView)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdviceViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_advice, parent, false)
-        return AdviceViewHolder(itemView)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_advice, parent, false)
+        return AdviceViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: AdviceViewHolder, position: Int) {
-        holder.tvAdvice.text = advices[position]
+        holder.adviceTextView.text = advices[position]
     }
 
     override fun getItemCount(): Int {
@@ -29,11 +33,7 @@ class AdviceAdapter(private var advices: MutableList<String>) : RecyclerView.Ada
     }
 
     fun addAdvice(advice: String) {
-        advices.add(advice)
-        notifyDataSetChanged()
-    }
-
-    class AdviceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvAdvice: TextView = itemView.findViewById(R.id.tvAdvice)
+        advices.add(0, advice)
+        notifyItemInserted(0)
     }
 }
